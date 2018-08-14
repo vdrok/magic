@@ -1,0 +1,49 @@
+@import "../../../Styles/colors";
+
+.translation-switch {
+  margin-top: 20px;
+  margin-bottom: 0;
+  max-width: 600px;
+  text-align: right;
+
+  .ui.button {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}
+
+.post-text {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  border: 1px solid $gray;
+  padding: 7px;
+  line-height: 19px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #85b7d9;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $gray;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $gray;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $gray;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $gray;
+  }
+
+  :-ms-input-placeholder { /* Microsoft Edge */
+    color: $gray;
+  }
+
+  ::placeholder { /* Most modern browsers support this now. */
+    color: $gray;
+  }
+}

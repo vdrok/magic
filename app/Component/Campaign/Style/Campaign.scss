@@ -1,0 +1,53 @@
+@import '../../../Styles/colors';
+
+.campaign-element {
+    margin: 15px;
+    padding: 15px;
+    cursor: pointer;
+
+    .date,
+    p {
+        color: $text-gray;
+    }
+
+    .date {
+        font-size: 16px;
+    }
+
+    .type {
+        color: #000;
+    }
+
+    .white-box {
+        position: relative;
+    }
+}
+
+.campaign-card {
+
+    &.placeholder{
+        opacity: 0.5;
+    }
+
+    .campaign-action {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .analytics{
+
+        color: $text-gray;
+        margin-bottom: 0 !important;
+
+        .values{
+            color: $green;
+            min-width: 55px;
+            display: inline-block;
+        }
+    }
+}
+
+.campaign-card:hover .campaign-action {
+    display: block;
+}

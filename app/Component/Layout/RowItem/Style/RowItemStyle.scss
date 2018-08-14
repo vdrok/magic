@@ -1,0 +1,13 @@
+@import "../../../Styles/colors";
+
+.white-box{
+  border: 1px solid $gray;
+  background-color: $white;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  &.clsClickable{
+    cursor: pointer;
+  }
+}

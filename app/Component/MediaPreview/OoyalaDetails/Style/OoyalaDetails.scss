@@ -1,0 +1,22 @@
+@import "../../../../Styles/colors";
+.ooyala-details{
+  position: relative;
+  margin-top: 15px;
+
+  .status{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    &.ready{
+      color: $green;
+    }
+    &.in-progress{
+      font-size: 0.75em;
+    }
+  }
+
+  .error{
+    color: $red;
+  }
+
+}

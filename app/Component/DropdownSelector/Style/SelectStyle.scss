@@ -1,0 +1,86 @@
+@import "../../../Styles/colors";
+@import "../../../Styles/mix";
+
+.select-field {
+  cursor: default;
+  max-width: 300px;
+
+
+  .selected-value {
+    height: 35px;
+    width: 100%;
+
+    label {
+      font-family: $default-font;
+      line-height: 35px;
+      margin: 0;
+    }
+    i{
+      float: right;
+      line-height: 35px;
+    }
+  }
+
+  .selected-options {
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    z-index: 11;
+    background: white;
+    border: 1px solid $select-field-border;
+    border-top-width: 0;
+    padding: 0 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    .option-wrapper{
+      position:relative;
+    }
+  }
+
+  .arrow-icon {
+    cursor: pointer;
+    display: inline;
+    line-height: 35px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 0 !important;
+  }
+
+
+  .option {
+    position: relative;
+    height: 30px;
+    overflow: hidden;
+
+    .label-wrapper{
+      cursor: pointer;
+      > div {
+        display: inline-block;
+      }
+    }
+
+    .folder-icon {
+      width: 24px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+
+    .label {
+      position: absolute;
+    }
+
+    label {
+      line-height: 24px;
+      display: table-cell;
+      font-weight: 200;
+    }
+
+    &.selected {
+      label {
+        font-weight: 500;
+      }
+    }
+  }
+
+}

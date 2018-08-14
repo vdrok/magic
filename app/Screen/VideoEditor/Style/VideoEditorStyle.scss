@@ -1,0 +1,83 @@
+.video-editor {
+
+    .is-loading {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
+    .video-player {
+        width: 100%;
+    }
+
+    .video-js .vjs-play-control{
+      margin-right: 40px;
+    }
+
+    .video-js.vjs-paused .vjs-big-play-button {
+      //  display: none;
+    }
+
+    .video-js .vjs-volume-panel {
+        display: none;
+    }
+
+    .video-js .vjs-progress-control {
+        display: none;
+    }
+
+    .video-js .vjs-fullscreen-control {
+        display: none;
+    }
+
+    .video-js.vjs-paused .vjs-time-control {
+        display: none;
+    }
+
+    .video-js .vjs-remaining-time {
+        display: none;
+    }
+
+    .video-js .vjs-control-new-button{
+
+    }
+
+    .rc-slider-rail {
+        height: 8px;
+    }
+
+    .rc-slider-track {
+        height: 8px;
+    }
+
+    .rc-slider-handle {
+        width: 20px;
+        height: 20px;
+    }
+
+    .video-trimmer {
+        margin: 40px 0 20px;
+    }
+
+    .video-trimmer-text {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        span {
+            flex: 1;
+        }
+    }
+
+    .video-trimmer-text-end {
+        text-align: right;
+    }
+
+    .buttons {
+        margin: 10px 0;
+    }
+
+    .sport-data-wrapper{
+        padding-top: 50px;
+    }
+}

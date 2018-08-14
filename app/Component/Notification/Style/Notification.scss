@@ -1,0 +1,21 @@
+
+.notification{
+
+  .dropdown{
+    right: 0 !important;
+    left: auto !important;;
+  }
+
+  .menu{
+    .label{
+      position: relative;
+    }
+    .progress{
+      margin-bottom: 0;
+    }
+    .stats{
+      margin-top: 0;
+      font-size: 0.8em;
+    }
+  }
+}

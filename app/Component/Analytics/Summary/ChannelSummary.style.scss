@@ -1,0 +1,32 @@
+@import "../../../Styles/colors";
+@import "../../../Styles/fonts";
+
+.analytics-channel-summary{
+
+    position: relative;
+
+    .channel-icon{
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+
+    .main{
+        color: $color-main;
+        font-size: $text-normal;
+        margin-bottom: 0;
+    }
+    .channel-name{
+        color: $color-secondary;
+    }
+    .percent{
+        position: absolute;
+        width: 100%;
+        top: 120px;
+        font-size: 26px;
+        color: $color-main;
+    }
+    p{
+        text-align: center;
+    }
+}

@@ -1,0 +1,50 @@
+.images-wrapper {
+  max-width: 28%;
+  display: inline-block;
+
+  .big-image-wrapper {
+    display: inline-block;
+    position: relative;
+
+    .post-big-image {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .small-image-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+
+    .post-image {
+      margin-left: 1px;
+      flex: 1;
+      min-width: 25% !important;
+      position: relative;
+
+      & > img {
+        max-height: 80px;
+        margin-right: 0 !important;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      i.play {
+        margin-top: -10px;
+        margin-left: -12px;
+      }
+    }
+  }
+
+  i.play {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    margin-top: -14px;
+    left: 50%;
+    margin-left: -14px;
+  }
+}

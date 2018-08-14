@@ -1,0 +1,158 @@
+@import "../../../Styles/colors";
+
+
+.campaign-post {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 28px !important;
+
+  &:first-child {
+    margin-top: 30px !important;
+  }
+
+  &:hover {
+    transform: none !important;
+  }
+
+  .options-buttons {
+    display: inline-block;
+    float: right;
+
+    button {
+      margin-right: 10px !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  .textual-content {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+    max-width: 70%;
+  }
+
+  .label {
+    padding-top: 16px;
+    padding-left: 14px;
+    position: absolute;
+    top: -15px;
+    right: 5px;
+    width: 250px;
+    text-align: center;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .channel-icon-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 25px;
+
+    .image {
+      margin: 0 auto;
+      background: white;
+      padding: 5px 0;
+    }
+  }
+
+  .post-header{
+    padding: 5px 15px;
+    position: relative;
+
+    .status{
+      position: absolute;
+      right: 15px;
+      top: 1em;
+
+      .approved, .published{
+        color: #21ba45;
+      }
+    }
+  }
+
+  .post-content {
+    position: relative;
+    padding-left: 45px !important;
+    color: #000;
+    white-space: pre-line;
+  }
+
+  .extra.content {
+    padding-left: 45px !important;
+
+    .estimated-data {
+      td:last-child {
+        font-weight: bold;
+        color: #000;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    width: 1px;
+    background: $border-color;
+    height: 100%;
+  }
+
+
+  &:last-child {
+    &:before {
+      height: 35px;
+    }
+  }
+
+  &:first-child {
+    &:before {
+      top: 35px;
+    }
+  }
+
+  .content-container {
+    padding-left: 50px;
+
+    img {
+      max-height: 120px;
+    }
+  }
+
+  span {
+    font-size: 13px;
+    color: $text-gray;
+
+    i {
+      font-size: 17px;
+      vertical-align: middle;
+    }
+
+    &.published {
+      color: #000;
+      i {
+        color: $green;
+      }
+    }
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .title-bar-wrapper {
+    margin-bottom: 40px;
+
+    .title {
+      float: left;
+      margin-left:4px;
+    }
+
+    .language {
+      float: right;
+    }
+  }
+}

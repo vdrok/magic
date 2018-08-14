@@ -1,0 +1,16 @@
+@import '../../../Styles/colors';
+
+.image-editor {
+    max-width: 700px;
+}
+
+.image-editor-modal {
+    .submit-btn {
+        text-align: right;
+    }
+    
+    .error {
+        color: $red;
+        padding: 0.5rem 0;
+    }
+}

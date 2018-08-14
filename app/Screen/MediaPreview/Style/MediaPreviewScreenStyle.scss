@@ -1,0 +1,85 @@
+@import '../../../Styles/colors';
+
+.media-info {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.thumbnail-wrapper {
+    position: relative;
+    min-height: 80px;
+    .icon {
+        color: white;
+        position: absolute;
+        text-align: center;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        margin-top: -30px;
+        margin-left: -30px;
+    }
+}
+
+.section-heading {
+    & > img,
+    & > p {
+        display: inline-block;
+    }
+
+    i {
+        font-size: 32px;
+        line-height: 32px;
+        vertical-align: bottom;
+        color: #2ab45a;
+    }
+
+    p {
+        margin-bottom: 0;
+        vertical-align: bottom;
+        font-weight: bold;
+        margin-left: 10px;
+        line-height: 32px;
+    }
+}
+
+.section-value {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.buttons-list {
+    .ui.button.btn {
+        margin: 0.5em 0.5em 0 0;
+    }
+
+    .ui.button.btn-danger {
+        background: $red;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        margin-top: 30px;
+    }
+
+    .buttons-list {
+        text-align: center;
+    }
+}
+
+.channel-icon {
+    width: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+.name-edit-icon {
+    margin: 0 0 0 5px;
+}
+
+.error {
+    color: $red;
+    padding: 0.5rem 0;
+}

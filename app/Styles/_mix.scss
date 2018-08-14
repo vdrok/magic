@@ -1,0 +1,39 @@
+@import 'functions';
+@import 'colors';
+
+$default-font: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
+
+$default-transition: all .15s;
+
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+.unauthorised-container{
+  margin-top: 100px;
+}
+
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+div [class*="left floated"] {
+  float: left;
+  margin-left: 0.25em;
+}
+
+div [class*="right floated"] {
+  float: right;
+  margin-right: 0.25em;
+}

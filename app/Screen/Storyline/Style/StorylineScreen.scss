@@ -1,0 +1,30 @@
+@import '../../../Styles/colors';
+
+.screen-storyline {
+    .btn {
+        margin-right: 15px;
+        margin-top: 3px;
+    }
+
+    .list-wrapper {
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 25px;
+            width: 1px;
+            height: 97% !important;
+            background: $border-color;
+            left: 38px;
+            visibility: visible !important;
+        }
+    }
+
+    .pull-left {
+        float: left;
+    }
+
+    .content-loader {
+        height: 130px;
+    }
+}

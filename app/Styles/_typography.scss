@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li {
+  font-family: $default-font;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  -moz-font-feature-settings: 'kern';
+  -moz-osx-font-smoothing: grayscale;
+}

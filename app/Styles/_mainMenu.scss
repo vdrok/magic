@@ -1,0 +1,35 @@
+$menu-item-height: 50px;
+
+.brand{
+  line-height: 35px;
+  margin: 15px 0 0 !important;
+}
+
+.main-menu {
+  margin-top: 10px;
+
+  li {
+    border-bottom: 1px solid $light-gray;
+
+    a {
+      display: block;
+      line-height: $menu-item-height;
+      width: 100%;
+      text-align: center;
+      -webkit-transition: $default-transition;
+      -moz-transition: $default-transition;
+      -ms-transition: $default-transition;
+      -o-transition: $default-transition;
+      transition: $default-transition;
+
+      &:hover {
+        background: $main-menu-hover-bg;
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+  }
+}

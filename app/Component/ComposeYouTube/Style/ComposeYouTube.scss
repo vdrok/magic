@@ -1,0 +1,22 @@
+.selected-media-list {
+  max-width: 600px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.post-social-buttons {
+  & > .ui.button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.youtube .form{
+  .ui.input, textarea, .content{
+    max-width: 600px;
+    width: 100%;
+  }
+}

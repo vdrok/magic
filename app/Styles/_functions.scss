@@ -1,0 +1,446 @@
+$thin: 200;
+$normal: 400;
+$bold: 600;
+
+// random alias
+@function rd($nmbr) {
+  @return random($nmbr);
+};
+
+// default, in-cubic, out-cubic, in-out-cubic, in-circ, out-circ, in-out-circ, in-expo, out-expo", in-out-expo, in-quad, out-quad, in-out-quad, in-quart, out-quart, in-out-quart, in-quint, out-quint, in-out-quint, in-sine, out-sine, in-out-sine, in-back, out-back, in-out-back, liquid", bounce, in-out-bounce, perpetuum, impetus, full-circle, gravity, overshot, downhill, pendulum, wtf,
+
+$ease: (
+        default: linear,
+        in-cubic:  "0.550, 0.055, 0.675, 0.190",
+        out-cubic:  "0.215, 0.610, 0.355, 1.000",
+        in-out-cubic:  "0.645, 0.045, 0.355, 1.000",
+        in-circ:  "0.600, 0.040, 0.980, 0.335",
+        out-circ:  "0.075, 0.820, 0.165, 1.000",
+        in-out-circ:  "0.785, 0.135, 0.150, 0.860",
+        in-expo:  "0.950, 0.050, 0.795, 0.035",
+        out-expo:  "0.190, 1.000, 0.220, 1.000",
+        in-out-expo:  "1.000, 0.000, 0.000, 1.000",
+        in-quad:  "0.550, 0.085, 0.680, 0.530",
+        out-quad:  "0.250, 0.460, 0.450, 0.940",
+        in-out-quad:  "0.455, 0.030, 0.515, 0.955",
+        in-quart:  "0.895, 0.030, 0.685, 0.220",
+        out-quart:  "0.165, 0.840, 0.440, 1.000",
+        in-out-quart:  "0.770, 0.000, 0.175, 1.000",
+        in-quint:  "0.755, 0.050, 0.855, 0.060",
+        out-quint:  "0.230, 1.000, 0.320, 1.000",
+        in-out-quint:  "0.860, 0.000, 0.070, 1.000",
+        in-sine:  "0.470, 0.000, 0.745, 0.715",
+        out-sine:  "0.390, 0.575, 0.565, 1.000",
+        in-out-sine:  "0.445, 0.050, 0.550, 0.950",
+        in-back:  "0.600, -0.280, 0.735, 0.045",
+        out-back:  "0.175,	0.885, 0.320, 1.275",
+        in-out-back:  "0.680, -0.550, 0.265, 1.550",
+        liquid: ".22,.01,.41,.54",
+        bounce: ".31,0,.56,1.5",
+        in-out-bounce: ".31,1,.56,2",
+  // easing by joogl || codepen.io/joogl/pen/dXyNPM
+        perpetuum: "0.55, 0.15, 0.45, 0.85",
+        impetus: "0.5, -0.35, 0.5, 1.35",
+        full-circle: "0.6, 0, 0.4, 1",
+        gravity: "0.5, 0.8, 0.5, 0.2",
+        overshot: "0.65, 1.5, 0.6, 0.95",
+        downhill: "0.3, 0.1, 0.3, 0.85",
+        pendulum: "0.3, 1.65, 0.7, -0.65",
+        wtf: "1, -2.3, 1, 2.5",
+        swing: ".45,-0.43,.63,1.94",
+        swing-p1: "0, 0, .80, 2",
+        swing-p2: ".53,-0.79,.66,1.21",
+);
+
+
+// diverse mixins
+
+@mixin break($point, $min-max: max-width) { // make media queries easier accessable
+  @if $min-max == max-width { // a pixel smaller on max-width
+    $bp-offset: 1;
+  }
+  @else {
+    $bp-offset: 0;
+  }
+  @if $point == small {
+    @media (#{$min-max}: $bp-small - $bp-offset /*24em*/) { @content; }
+  }
+  @else if $point == medium {
+    @media (#{$min-max}: $bp-medium - $bp-offset  /*46.8em*/) { @content; }
+  }
+  @else if $point == large {
+    @media (#{$min-max}: $bp-large - $bp-offset  /*50em*/)  { @content; }
+  }
+  @else {
+    @media (#{$min-max}: $point - $bp-offset  /*50em*/)  { @content; }
+  }
+}
+
+@function get($map, $keys...) { // to access multi-maps aka vars with arrays in several deepness
+  $value: $map;
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+  @return $value;
+}
+
+@function clr($col...) { // usage: clr(s) from $c
+  @return get($c, $col...);
+};
+
+// alias for easing
+
+@function ease($style:default) {
+  @return cubic-bezier(unquote(get($ease,$style)))
+}
+@function easing($style:default) {
+  @return cubic-bezier(unquote(get($ease,$style)))
+}
+
+@mixin optional-at-root($sel) { // check if mixin is nested
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+$browser-font-size: 16;
+
+@function em($pixels, $context: $browser-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+  @for $i from $from through $stroke {
+    @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+  @return $shadow;
+}
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+/// usage: @include stroke(amount,color);
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}
+
+@function nmbr($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+$mbm: (normal,
+multiply,
+screen,
+overlay,
+darken,
+lighten,
+color-dodge,
+color-burn,
+hard-light,
+soft-light,
+difference,
+exclusion,
+hue,
+saturation,
+color,
+luminosity);
+
+@mixin mix($option:0, $bg:0) {
+  @if $bg == 0 {
+    mix-blend-mode: nth($mbm, $option);
+  } @else {
+    background-blend-mode: nth($mbm, $option);
+  }
+}
+// -----------------------------------
+// © Twixes
+// https://codepen.io/Twixes/pen/wMYXLM
+// -----------------------------------
+@mixin text-fill($color, $glow: false, $setColor: true) {
+  @if $setColor == true {
+    color: $color;
+  }
+
+  @if $glow == false {
+    text-shadow: 0 1px 0 darken($color, 20),
+    0 2px 0 darken($color, 22),
+    0 3px 0 darken($color, 24),
+    0 4px 0 darken($color, 26),
+    0 5px 0 darken($color, 28),
+    0 6px 3px rgba(0,0,0, 0.1),
+    0 0 5px rgba(0,0,0, 0.1),
+    0 1px 3px rgba(0,0,0, 0.15),
+    0 3px 5px rgba(0,0,0, 0.2),
+    0 5px 10px rgba(0,0,0, 0.25),
+    0 10px 10px rgba(0,0,0, 0.2),
+    0 20px 20px rgba(0,0,0, 0.15);
+
+  } @else {
+    text-shadow: 0 1px 0 darken($color, 20),
+    0 2px 0 darken($color, 22),
+    0 3px 0 darken($color, 24),
+    0 4px 0 darken($color, 26),
+    0 5px 0 darken($color, 28),
+    0 6px 3px rgba(0,0,0, 0.1),
+    0 0 $glow rgba(#fff, 0.75);
+  }
+}
+
+@mixin box-fill($color, $after: "") {
+  background: $color unquote($after);
+  box-shadow: 0 1px 0 darken($color, 20),
+  0 2px 0 darken($color, 22),
+  0 3px 0 darken($color, 24),
+  0 4px 0 darken($color, 26),
+  0 5px 0 darken($color, 28),
+  0 6px 3px rgba(0, 0, 0, 0.1),
+  0 0 5px rgba(0, 0, 0, 0.1),
+  0 1px 3px rgba(0, 0, 0, 0.15),
+  0 3px 5px rgba(0, 0, 0, 0.2),
+  0 5px 10px rgba(0, 0, 0, 0.25),
+  0 10px 10px rgba(0, 0, 0, 0.2),
+  0 20px 20px rgba(0, 0, 0, 0.15) unquote($after);
+}
+// --------------------------
+// https://codepen.io/MichaelArestad/pen/IxFGj
+// --------------------------
+@mixin arrow($direction: top, $size: 10px, $color: #ccc, $center: 50%, $margin: -1px, $pseudo: before, $zindex: 0){
+  position: relative;
+  border-color: $color;
+
+  &:#{$pseudo} {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-color: $color;
+
+    @if $zindex != 0 {
+      z-index: $zindex;
+    }
+
+    @if $direction == "right" {
+      top: $center;
+      left: 100%;
+      margin-left: $margin;
+      margin-top: $size * -1;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size solid $color;
+      border-left-color: inherit;
+    } @else if $direction == "top" {
+      bottom: 100%;
+      left: $center;
+      margin-bottom: $margin;
+      margin-left: $size * -1;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-bottom: $size solid $color;
+      border-bottom-color: inherit;
+    } @else if $direction == "left" {
+      top: $center;
+      right: 100%;
+      margin-right: $margin;
+      margin-top: $size * -1;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-right:$size solid $color;
+      border-right-color: inherit;
+    } @else {
+      top: 100%;
+      left: $center;
+      margin-top: $margin;
+      margin-left: $size * -1;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-top: $size solid $color;
+      border-top-color: inherit;
+    }
+  }
+}
+
+// usage: @include responsive-ratio(16,9);
+@mixin ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@function pi() {
+  @return 3.14159265359;
+}
+// -----------------------------
+// https://github.com/adambom/Sass-Math/blob/master/math.scss
+// -----------------------------
+@function power ($x, $n) {
+  $ret: 1;
+
+  @if $n >= 0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
+    }
+  } @else {
+    @for $i from $n to 0 {
+      $ret: $ret / $x;
+    }
+  }
+
+  @return $ret;
+}
+
+@function factorial ($x) {
+  $ret: 1;
+
+  @if $x > 0 {
+    @while $x > 0 {
+      $ret: $ret * $x;
+
+      $x: $x - 1;
+    }
+  }
+
+  @return $ret;
+}
+
+@function sin ($x) {
+  $ret: 0;
+
+  @for $n from 0 to 25 {
+    $ret: $ret + power(-1, $n) * power($x, 2 * $n + 1) / factorial(2 * $n + 1);
+  }
+
+  @return $ret;
+}
+
+@function cos ($x) {
+  $ret: 0;
+
+  @for $n from 0 to 25 {
+    $ret: $ret + power(-1, $n) * power($x, 2 * $n) / factorial(2 * $n);
+  }
+
+  @return $ret;
+}
+
+@function exp ($x) {
+  $ret: 0;
+
+  @for $n from 0 to 25 {
+    $ret: $ret + power($x, $n) / factorial($n);
+  }
+
+  @return $ret;
+}
+
+@function ln($x) {
+  $ret: 0;
+  $n: 1;
+  $dx: .001;
+
+  @while $n <= $x {
+    $ret: $ret + $dx / $n;
+
+    $n: $n + $dx;
+  }
+
+  @return $ret;
+}
+
+@function sqrt($x) {
+  @return exp(0.5 * ln($x));
+}
+
+// --------------------------------------------
+// https://css-tricks.com/focusing-background-image-precise-location-percentages/
+// --------------------------------------------
+
+@function background-focus($ratio, $bg, $box: 50) {
+  @return (($bg + (50 - $box)/$ratio - 50) * ($ratio / ($ratio - 1)) + 50) * 1%;
+}
+
+/**
+ * Computes a CSS calc function that betweens a value from
+ * A to B over viewport-width A to viewport-width B.
+ * Requires a media query to cap the value at B.
+ */
+
+@function between($to, $from, $toWidth, $fromWidth) {
+  $slope: ($to - $from) / ($toWidth - $fromWidth);
+  $base: $from - $slope * $fromWidth;
+
+  @return calc(#{$base} + #{100vw * $slope});
+}
+
+// rpf: function to return (r)em value(s)
+// syntax: 	size(20) returns 1.25rem (based on 16px base font size)
+// 			size(20, 12) returns 1.6666667em (based on 12px font size)
+//			size(20, p) (or any other letter) returns 1.25em (eg. for padding where we use em's)
+@function size($px, $em:false) {
+  @if type-of($px) == 'number' {
+    @if $em == false {
+      // @debug $px, $px / 16 * 1rem;
+      @return $px / 16 * 1rem;
+    }
+    @else {
+      // @debug type-of($em) $em;
+
+      @if type-of($em) == 'number' {
+        @return $px / $em * 1em;
+      }
+      @else {
+        @return $px / 16 * 1em;
+      }
+    }
+  }
+  @else {
+    @warn "mixin 'size()' value '#{$px}' is NAN!";
+    @return $px + " /* ERROR! */";
+  }
+}

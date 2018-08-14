@@ -1,0 +1,42 @@
+@import "../../../Styles/colors";
+
+.team-management {
+
+  .item-header {
+    font-size: 15px!important;
+    font-weight: 500!important;
+    white-space: nowrap;
+  }
+
+  .item-description {
+    color: $text-gray!important;
+    white-space: nowrap;
+  }
+
+  .item-extra {
+    text-align: right!important;
+    padding-top: 16px!important;
+  }
+
+  .text-danger {
+    color: $red!important;
+  }
+
+  .disabled {
+    background-color: $light-gray!important;
+    pointer-events: none;
+  }
+
+  .item-content {
+    padding-left: 10px!important;
+    padding-top: 16px!important;
+  }
+
+  .item {
+    padding-top: 0!important;
+  }
+
+  .client-name {
+    padding-left: 10px!important;
+  }
+}

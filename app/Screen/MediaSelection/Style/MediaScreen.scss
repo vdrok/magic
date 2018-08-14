@@ -1,0 +1,51 @@
+@import "../../../Styles/colors";
+
+.media-selection{
+  .scrolling.content{
+    overflow-x: hidden !important;
+    min-height: 200px;
+    .dimmer{
+      padding: 30px;
+    }
+  }
+}
+
+.ui.basic.table.swipe-menu-table {
+  width: 80%;
+  tbody{
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+  }
+  td {
+    padding-left: 10px !important;
+  }
+}
+
+.swipe-list-heading {
+  margin: 20px 0 0 !important;
+  font-weight: bold;
+  padding-left: 10px;
+  font-size: 16px;
+
+  a {
+    color: $green;
+    float: right;
+    margin-right: 10px;
+  }
+}
+
+.sidebar-wrapper > .content {
+  position: relative;
+
+  .ui.button {
+    background: none;
+  }
+}
+
+.media-selection-header{
+  font-size: 1rem !important;
+  line-height: 1em !important;
+  font-weight: normal !important;
+}

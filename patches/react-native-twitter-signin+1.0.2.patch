@@ -1,0 +1,13 @@
+patch-package
+new file mode 100644
+--- a/node_modules/react-native-twitter-signin/android/src/main/java/com/goldenowl/twittersignin/TwitterSigninPackage.java
++++ b/node_modules/react-native-twitter-signin/android/src/main/java/com/goldenowl/twittersignin/TwitterSigninPackage.java
+@@ -25,7 +25,7 @@ public class TwitterSigninPackage implements ReactPackage {
+         return Arrays.<NativeModule>asList(new TwitterSigninModule(reactContext));
+     }
+ 
+-    @Override
++    //@Override
+     public List<Class<? extends JavaScriptModule>> createJSModules() {
+         return Collections.emptyList();
+     }

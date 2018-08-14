@@ -1,0 +1,40 @@
+@import "../../../Styles/colors";
+
+.ui.basic.table.swipe-menu-table {
+  width: 100%;
+  td {
+    padding-left: 10px !important;
+  }
+}
+
+.swipe-list-heading {
+  margin: 20px 0 0 !important;
+  font-weight: bold;
+  padding-left: 10px;
+  font-size: 16px;
+
+  a {
+    color: $green;
+    float: right;
+    margin-right: 10px;
+  }
+}
+
+.sidebar-wrapper > .content {
+  position: relative;
+
+  .ui.button {
+    background: none;
+  }
+}
+
+.scroller{
+  width: 100%;
+}
+
+.media_load_more{
+  button{
+    background: #e0e1e2 none;
+    color: rgba(0,0,0,0.6);
+  }
+}

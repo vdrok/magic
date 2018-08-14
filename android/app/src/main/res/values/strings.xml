@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Engage</string>
+    <string name="facebook_app_id">1959035570983570</string>
+    <string name="fb_login_protocol_scheme">fb1959035570983570</string>
+</resources>

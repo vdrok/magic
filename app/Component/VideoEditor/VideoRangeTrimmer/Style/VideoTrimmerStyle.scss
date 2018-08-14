@@ -1,0 +1,22 @@
+.video-trimmer {
+    padding: 40px 30px 0;
+    position: relative;
+
+    .preview-thumbnail{
+        position: absolute;
+        bottom: 30px;
+        border: 1px solid black;
+    }
+    .rc-slider-dot{
+        display: none;
+    }
+
+    .rc-slider-mark{
+        .rc-slider-mark-text-active:first-child{
+            top: -40px;
+        }
+
+
+    }
+
+}

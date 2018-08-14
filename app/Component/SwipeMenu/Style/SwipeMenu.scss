@@ -1,0 +1,52 @@
+@import "../../../Styles/colors";
+
+$sidebar-width: 250px;
+
+.sidebar-wrapper {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: white;
+
+  .ui.button.open-button {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    margin: 0 !important;
+    padding: 14px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-transition: right .5s;
+    -moz-transition: right .5s;
+    -ms-transition: right .5s;
+    -o-transition: right .5s;
+    transition: right .5s;
+  }
+
+  & > .content {
+    opacity: 0;
+    width: 0;
+    overflow: auto;
+    height: 100%;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+  }
+
+  &.open {
+    border-left: 1px solid $light-gray;
+
+    & > .content {
+      width: $sidebar-width;
+      opacity: 1;
+    }
+
+    .ui.button.open-button {
+      right: $sidebar-width;
+    }
+  }
+}

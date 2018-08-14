@@ -1,0 +1,19 @@
+@import "../../../Styles/colors";
+
+.screen-analytics{
+
+  .analytics-channel-summary{
+    .channel-logo{
+      max-width: 50px;
+      max-height: 50px;
+    }
+  }
+  .promo{
+
+  }
+
+  h3.promo{
+    color: $color-secondary !important;
+    text-align: center;
+  }
+}

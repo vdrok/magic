@@ -1,0 +1,14 @@
+version: '3'
+services:
+  frontend:
+    build:
+       context: .
+    ports:
+      - 3001:3001
+    volumes:
+       - .:/usr/src/app/
+    environment:
+      API_URL: 'https://api.duo.levuro.com/api/'
+      FACEBOOK_APP_ID: 309864499516938
+      AWS_BUCKET: AKIAJSMYDW6A2QFT6DAQ,
+      ONESIGNAL_APP_ID: '03da811f-3c6d-4598-98ae-6ea830006bb5'

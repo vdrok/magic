@@ -1,0 +1,69 @@
+@import '../../../Styles/colors';
+
+.video-thumbnail {
+    max-width: 700px;
+
+    .is-loading {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
+    .video-player {
+        width: 100%;
+    }
+
+    .video-js.vjs-paused .vjs-big-play-button {
+        display: none;
+    }
+
+    .video-js .vjs-control-bar,
+    .video-js.vjs-paused .vjs-control-bar {
+        display: flex;
+    }
+
+    .video-js .vjs-play-control {
+        display: none;
+    }
+
+    .video-js .vjs-volume-panel {
+        display: none;
+    }
+
+    .video-js .vjs-fullscreen-control {
+        display: none;
+    }
+
+    .video-js .vjs-time-control,
+    .video-js.vjs-paused .vjs-time-control {
+        display: block;
+    }
+
+    .video-js .vjs-remaining-time,
+    .video-js.vjs-paused .vjs-remaining-time {
+        display: none;
+    }
+
+    .video-js .vjs-res-button {
+        outline: none;
+        cursor: pointer;
+    }
+
+    .video-js .vjs-tech {
+        pointer-events: none;
+    }
+    .video-js .vjs-progress-holder .vjs-play-progress {
+        color: $green;
+        background-color: #73859f;
+        background-color: rgba(115,133,159,.5);
+    }
+
+    .ui.button.btn-save {
+        margin: 0.5em 0;
+    }
+
+    .error {
+        color: $red;
+        padding: 0.5rem 0;
+    }
+}

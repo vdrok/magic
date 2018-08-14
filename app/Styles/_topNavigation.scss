@@ -1,0 +1,10 @@
+.navbar {
+  border-bottom: $topnav-border-bottom;
+  margin-bottom: 20px;
+
+  .navbar-brand {
+    img {
+      max-width: 40px;
+    }
+  }
+}

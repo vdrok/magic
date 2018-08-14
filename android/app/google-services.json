@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "135213473005",
+    "firebase_url": "https://levuro-engage.firebaseio.com",
+    "project_id": "levuro-engage",
+    "storage_bucket": "levuro-engage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135213473005:android:fec8823489417723",
+        "android_client_info": {
+          "package_name": "com.levuro.engage2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135213473005-ottpgqpog78n7qf2dtr5m2g4ht2vva0u.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "135213473005-5eb2o1rjevno8s0acofp96nsv1k829ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXhelHXCauTtbbajKZLRUG1jb2HR6-vVw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135213473005-ottpgqpog78n7qf2dtr5m2g4ht2vva0u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "135213473005-e20uf0emtbtr7dicfo3l7olgqab2vvs3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.levuro.engage"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+@import '../../../../Styles/colors';
+
+.image-crop-container {
+    width: 100%;
+    margin: 0 0 1rem;
+
+    .is-loading {
+        opacity: 0;
+    }
+
+    .template-active {
+        color: $dark-green !important;
+    }
+
+    .template-logo-icon {
+        width: 35px;
+        height: 35px;
+        display: inline-block !important;
+    }
+}
+
+.image-crop-buttons {
+    margin: 1rem 0 0;
+    overflow-x: scroll;
+}
